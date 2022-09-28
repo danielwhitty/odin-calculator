@@ -26,6 +26,15 @@ clear.addEventListener('click', function() {
     display.textContent = '';
 });
 
+// Array to keep track of order of operations
+let operatorsArray = [];
+
+// Add event listener for equals
+const equals = document.getElementById('equals');
+equals.addEventListener('click', function() {
+    
+});
+
 // Add to display when numbers are clicked
 const numbers = document.querySelectorAll('.numbers button');
 for (let number of numbers) {
@@ -39,5 +48,6 @@ const operators = document.querySelectorAll('.operators button');
 for (let operator of operators) {
     operator.addEventListener('click', function() {
         display.textContent += ` ${operator.textContent} `;
-    })
+        operatorsArray.push(operator.id);
+    });
 }
