@@ -26,10 +26,18 @@ clear.addEventListener('click', function() {
     display.textContent = '';
 });
 
-// Add to display
+// Add to display when numbers are clicked
 const numbers = document.querySelectorAll('.numbers button');
 for (let number of numbers) {
     number.addEventListener('click', function() {
         display.textContent += number.textContent;
     });
+}
+
+// Add event listeners for operators
+const operators = document.querySelectorAll('.operators button');
+for (let operator of operators) {
+    operator.addEventListener('click', function() {
+        display.textContent += ` ${operator.textContent} `;
+    })
 }
