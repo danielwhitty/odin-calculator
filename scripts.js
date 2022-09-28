@@ -24,6 +24,7 @@ const clear = document.getElementById('clear');
 
 clear.addEventListener('click', function() {
     display.textContent = '';
+    operatorsArray = [];
 });
 
 // Array to keep track of order of operations
