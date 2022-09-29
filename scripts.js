@@ -49,7 +49,7 @@ equals.addEventListener('click', function() {
         numberArray[1] = window[operator](+numberArray[0], +numberArray[1]);
         numberArray.shift();
     }
-    display.textContent = numberArray[0];
+    display.textContent = Math.round(numberArray[0] * 100) / 100;
     operatorsArray = [];
 });
 
