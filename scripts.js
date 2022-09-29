@@ -34,6 +34,23 @@ let operatorsArray = [];
 const equals = document.getElementById('equals');
 equals.addEventListener('click', function() {
     const numberArray = display.textContent.split(' ');
+    if (!checkInput(numberArray)) {
+        display.textContent = 'N/A';
+        return;
+    }
+
+    // Remove "operators" from numberArray
+    for (let i = 1; i < numberArray.length; i++) {
+        numberArray.splice(i, 1);
+    }
+
+    let i = 0;
+    for (let operator of operatorsArray) {
+        numberArray[1] = window[operator](+numberArray[0], +numberArray[1]);
+        numberArray.shift();
+    }
+    display.textContent = numberArray[0];
+    operatorsArray = [];
 });
 
 // Add to display when numbers are clicked
