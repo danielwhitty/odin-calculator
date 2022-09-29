@@ -33,7 +33,7 @@ let operatorsArray = [];
 // Add event listener for equals
 const equals = document.getElementById('equals');
 equals.addEventListener('click', function() {
-    
+    const numberArray = display.textContent.split(' ');
 });
 
 // Add to display when numbers are clicked
@@ -51,4 +51,17 @@ for (let operator of operators) {
         display.textContent += ` ${operator.textContent} `;
         operatorsArray.push(operator.id);
     });
+}
+
+// Returns true if calculator input is valid
+function checkInput(numberArray) {
+    for (let i = 0; i < numberArray.length; i++) {
+        if (numberArray[i] === ' ' || numberArray[i] === '') {
+            return false;
+        }
+    }
+    if (Number.isNaN(+numberArray[numberArray.length - 1])) {
+        return false;
+    }
+    return true;
 }
