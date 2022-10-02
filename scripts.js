@@ -18,8 +18,8 @@ function operate(func, a, b) {
     return func(a, b);
 }
 
-// // Array to keep track of order of operations
-// let operatorsArray = [];
+// Variable to keep track of last operator
+let lastOperator;
 
 // Add elements and function to clear display
 const display = document.getElementById('display');
@@ -40,7 +40,7 @@ for (let operator of operators) {
     // Set operators to disabled on page load
     operator.disabled = true;
     operator.addEventListener('click', function() {
-        operateClick()
+        operateClick(operator)
     });
 }
 
@@ -72,8 +72,21 @@ equals.addEventListener('click', function() {
     // operatorsArray = [];
 })
 
-function operateClick() {
+function operateClick(operator) {
+    const displayArray = checkDisplay();
 
+    if (displayArray.length === 1) {
+        display.textContent += ` ${operator.textContent} `;
+    } else {
+        let result = window[lastOperator.id](+displayArray[0], +displayArray[2]);
+        result = Math.round(result * 100) / 100;
+        display.textContent = `${result} ${operator.textContent} `;
+    }
+    for (let operator of operators) {
+        operator.disabled = true;
+    }
+    
+    lastOperator = operator;
 }
 
 function numberClick(number) {
