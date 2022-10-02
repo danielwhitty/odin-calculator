@@ -46,7 +46,6 @@ for (let operator of operators) {
 
 clear.addEventListener('click', function() {
     display.textContent = '';
-    // operatorsArray = [];
 });
 
 // Add event listener for equals
@@ -90,16 +89,3 @@ function getResult(displayArray) {
     let result = window[lastOperator.id](+displayArray[0], +displayArray[2]);
     return Math.round(result * 100) / 100;
 }
-
-// Returns true if calculator input is valid
-// function checkInput(numberArray) {
-//     for (let i = 0; i < numberArray.length; i++) {
-//         if (numberArray[i] === ' ' || numberArray[i] === '') {
-//             return false;
-//         }
-//     }
-//     if (Number.isNaN(+numberArray[numberArray.length - 1])) {
-//         return false;
-//     }
-//     return true;
-// }
