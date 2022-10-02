@@ -52,24 +52,10 @@ clear.addEventListener('click', function() {
 // Add event listener for equals
 const equals = document.getElementById('equals');
 equals.addEventListener('click', function() {
-    // const numberArray = display.textContent.split(' ');
-    // if (!checkInput(numberArray)) {
-    //     display.textContent = 'N/A';
-    //     return;
-    // }
-
-    // // Remove "operators" from numberArray
-    // for (let i = 1; i < numberArray.length; i++) {
-    //     numberArray.splice(i, 1);
-    // }
-
-    // let i = 0;
-    // for (let operator of operatorsArray) {
-    //     numberArray[1] = window[operator](+numberArray[0], +numberArray[1]);
-    //     numberArray.shift();
-    // }
-    // display.textContent = Math.round(numberArray[0] * 100) / 100;
-    // operatorsArray = [];
+    const displayArray = checkDisplay();
+    if (displayArray.length === 3) {
+        display.textContent = getResult(displayArray);
+    }
 })
 
 function operateClick(operator) {
@@ -78,14 +64,13 @@ function operateClick(operator) {
     if (displayArray.length === 1) {
         display.textContent += ` ${operator.textContent} `;
     } else {
-        let result = window[lastOperator.id](+displayArray[0], +displayArray[2]);
-        result = Math.round(result * 100) / 100;
+        let result = getResult(displayArray)
         display.textContent = `${result} ${operator.textContent} `;
     }
     for (let operator of operators) {
         operator.disabled = true;
     }
-    
+    equals.disabled = true;
     lastOperator = operator;
 }
 
@@ -94,10 +79,16 @@ function numberClick(number) {
         operator.disabled = false;
     }
     display.textContent += number;
+    equals.disabled = false;
 }
 
 function checkDisplay() {
     return display.textContent.split(' ');
+}
+
+function getResult(displayArray) {
+    let result = window[lastOperator.id](+displayArray[0], +displayArray[2]);
+    return Math.round(result * 100) / 100;
 }
 
 // Returns true if calculator input is valid
