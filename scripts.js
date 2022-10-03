@@ -59,6 +59,9 @@ equals.addEventListener('click', function() {
     if (displayArray.length === 3) {
         display.textContent = getResult(displayArray);
     }
+    for (const number of numbers) {
+        number.disabled = true;
+    }
 })
 
 function operateClick(operator) {
@@ -73,6 +76,9 @@ function operateClick(operator) {
     for (let operator of operators) {
         operator.disabled = true;
     }
+    for (let number of numbers) {
+        number.disabled = false;
+    }
     equals.disabled = true;
     lastOperator = operator;
 }
@@ -83,6 +89,9 @@ function numberClick(number) {
     }
     display.textContent += number;
     equals.disabled = false;
+    if (number === '.') {
+        decimal.disabled = true;
+    }
 }
 
 function checkDisplay() {
