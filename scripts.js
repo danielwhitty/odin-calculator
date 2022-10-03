@@ -25,6 +25,7 @@ let lastOperator;
 const display = document.getElementById('display');
 const clear = document.getElementById('clear');
 const backspace = document.getElementById('backspace');
+const decimal = document.getElementById('decimal');
 
 // Add to display when numbers are clicked
 const numbers = document.querySelectorAll('.numbers button');
@@ -46,6 +47,9 @@ for (let operator of operators) {
 
 clear.addEventListener('click', function() {
     display.textContent = '';
+    for (let operator of operators) {
+        operator.disabled = true;
+    }
 });
 
 // Add event listener for equals
