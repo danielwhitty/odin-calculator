@@ -28,7 +28,7 @@ const backspace = document.getElementById('backspace');
 const decimal = document.getElementById('decimal');
 
 // Add to display when numbers are clicked
-const numbers = document.querySelectorAll('.numbers button');
+const numbers = document.querySelectorAll('button.numbers');
 for (let number of numbers) {
     number.addEventListener('click', function() {
         numberClick(number.textContent);
@@ -36,7 +36,7 @@ for (let number of numbers) {
 }
 
 // Add event listeners for operators
-const operators = document.querySelectorAll('.operators button');
+const operators = document.querySelectorAll('button.operators');
 for (let operator of operators) {
     // Set operators to disabled on page load
     operator.disabled = true;
