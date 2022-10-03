@@ -52,6 +52,15 @@ clear.addEventListener('click', function() {
     }
 });
 
+backspace.addEventListener('click', function() {
+    let displayArray = Array.from(display.textContent);
+    let lastElement = ' ';
+    do {
+        lastElement = displayArray.pop();
+    } while (lastElement === ' ');
+    display.textContent = displayArray.toString().replace(/,/g, '');
+})
+
 // Add event listener for equals
 const equals = document.getElementById('equals');
 equals.addEventListener('click', function() {
