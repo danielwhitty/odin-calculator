@@ -1,0 +1,80 @@
+html, 
+body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: lavender;
+}
+
+p {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    text-align: right;
+    max-height: 1em;
+    background-color: rgb(214, 202, 226);
+    color: rgb(0, 0, 0);
+}
+
+.top-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    align-items: stretch;
+    height: 75%;
+    width: 75%;
+}
+
+.mid-container {
+    flex: 1;
+    flex-shrink: 0;
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    font-size: 84px;
+    font-family: 'Roboto';
+    background-color: rgb(214, 202, 226);
+}
+
+.mid-container button {
+    flex: 1;
+    font-size: 52px;
+    font-family: 'Roboto';
+    background-color: rgb(214, 202, 226);
+    color: rgb(0, 0, 0);
+    border: solid black 3px;
+} 
+
+.mid-container button:hover {
+    filter: brightness(115%);  
+}
+
+.mid-container#display {
+    border-top: solid black 3px;
+    border-left: solid black 3px;
+    border-right: solid black 3px;
+    box-sizing: border-box;
+    overflow: auto;
+}
+
+#clear,
+#zero {
+    min-width: 50%;
+}
+
+#clear,
+#backspace,
+#multiply,
+#divide,
+#add,
+#subtract,
+#equals {
+    background-color: blueviolet;
+    color: aliceblue;
+}
