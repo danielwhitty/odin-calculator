@@ -55,7 +55,7 @@ p {
     filter: brightness(115%);  
 }
 
-.mid-container#display {
+.mid-container#display-div {
     border-top: solid black 3px;
     border-left: solid black 3px;
     border-right: solid black 3px;
